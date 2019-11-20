@@ -1,0 +1,10 @@
+1. Insert the following time-series data into MongoDB collection with a call to a node API. The Node API should be served in 8081 port.
+{ timestamp:ISODate(present time), value = (random int) }
+
+2. Create a simple card, which shows the time-elapsed(since insertion) and Value in a dashboard, the live card should update right away when the data is inserted through the backend route and should be served in 8080 port. The dashboard should have a standard user login and password system( should be handled in a separate route ).
+
+3. All the data should be handled with Redux.
+
+4. The package should be served by running
+npm install
+npm run start  
