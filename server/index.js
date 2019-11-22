@@ -21,6 +21,7 @@ server.use(bodyParser.json())
 server.use(cors())
 
 server.post('/addData', (req, res) => {
+    console.log(`/addData ${req.connection.remoteAddress}`)
     const { value } = req.body
     const currentTime = new Date()
     const data = new Data()
@@ -36,6 +37,7 @@ server.post('/addData', (req, res) => {
 
 
 server.get('/getData', (req, res) => {
+    console.log(`/getData ${req.connection.remoteAddress}`)
     Data.find((err, data) => {
         if (err) return res.json({ 'success': false })
         else return res.json({ 'success': true, 'data': data })
