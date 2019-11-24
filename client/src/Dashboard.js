@@ -57,12 +57,14 @@ class Dashboard extends Component {
     if (data && data.length !== 0)
       display = data.map(ele => <DataCard data={ele} key={ele._id} />)
     else
-      display = <CircularProgress />
+      display = <center><CircularProgress /></center>
     return (
       <React.Fragment>
-        {
-          display
-        }
+        <h1>Welcome Admin</h1>
+        <center>
+          {
+            display
+          }</center>
       </React.Fragment>
     )
   }

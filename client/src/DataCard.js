@@ -44,7 +44,7 @@ export class DataCard extends Component {
         const { day, minute, hour, second } = this.state
         return (
             <React.Fragment>
-
+                <br />
                 <Card style={{ maxWidth: '400px' }}>
                     <CardContent>
                         <Typography>

@@ -33,12 +33,15 @@ export class Login extends Component {
         })
     }
 
+
+
     render() {
         if (this.props.login) {
             return (
-                <React.Fragment>
+                <React.Fragment><center>
                     <h1>You're logged in</h1>
                     <h2><Link to='/dashboard'>Go to dashboard</Link></h2>
+                </center>
                 </React.Fragment>
             )
         }
@@ -47,13 +50,14 @@ export class Login extends Component {
         return (
 
 
-            <React.Fragment>
+            <React.Fragment><center>
                 <form onSubmit={this.login}>
-                    <TextField label='Username' variant='outlined' name='username' onChange={this.handleChange} />
-                    <TextField label='Password' variant='outlined' name='password' type='password' onChange={this.handleChange} />
+                    <h2 >Login</h2>
+                    <TextField label='Username' variant='outlined' name='username' onChange={this.handleChange} /><br /><br />
+                    <TextField label='Password' variant='outlined' name='password' type='password' onChange={this.handleChange} /><br /><br />
                     <Button variant="contained" type='submit'>Login</Button>
 
-                </form>
+                </form></center>
             </React.Fragment>
         )
     }
