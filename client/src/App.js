@@ -1,37 +1,34 @@
-import React, { Component } from 'react';
-import DataCard from './DataCard'
-import axios from 'axios'
-import CircularProgress from '@material-ui/core/CircularProgress'
+import React, { Component } from 'react'
+import { BrowserRouter, Route } from 'react-router-dom'
+import Dashboard from './Dashboard'
+import Login from './Login'
+import Home from './Home'
 
-class App extends Component {
+export class App extends Component {
 
-  state = {
-    data: []
-  }
+    state = {
+        isLoggedIn: false
+    }
 
-  componentDidMount() {
-    axios.get(`http://localhost:8081/getData`).then(res => {
-      const d = res.data.data
-      console.log(d)
-      this.setState({ data: d })
-    })
-    //this.setState({ data: datas })
-  }
+    login = () => {
+        this.setState({ isLoggedIn: true })
+    }
 
-  render() {
-    let display
-    if (this.state.data.length !== 0)
-      display = this.state.data.map(ele => <DataCard data={ele} key={ele._id} />)
-    else
-      display = <CircularProgress />
-    return (
-      <React.Fragment>
-        {
-          display
-        }
-      </React.Fragment>
-    )
-  }
+    render() {
+        return (
+            <BrowserRouter>
+                <Route exact path='/'>
+                    <Home />
+                </Route>
+                <Route exact path='/dashboard'>
+                    <Dashboard login={this.state.isLoggedIn} />
+                </Route>
+                <Route exact path='/login'>
+                    <Login login={this.state.isLoggedIn} loginfn={this.login} />
+                </Route>
+            </BrowserRouter>
+        )
+    }
 }
 
-export default App;
+export default App
